@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "MindfulScreen - Digital Wellbeing Monitor",
+  "version": "1.0.0",
+  "description": "Tracks browsing time, detects behavioural patterns, and promotes healthier digital habits.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "alarms",
+    "idle"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MindfulScreen"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
